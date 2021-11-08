@@ -47,8 +47,10 @@ public class ImageController {
         
         String fileLocation = new File("src/main/resources/static/images").getAbsolutePath();
                 
+        
         FileUploadUtil.saveFile(fileLocation, fileName, multipartFile);
-         
+        
+        
         /*
         System.out.println(fileLocation);
         FileOutputStream output = new FileOutputStream(fileLocation);
