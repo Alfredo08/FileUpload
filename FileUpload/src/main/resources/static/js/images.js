@@ -3,8 +3,12 @@ function openModal( event ){
     let modal = document.querySelector( ".modalContainer" );
     let modalImage = document.querySelector( ".modalImage" );
     let modalImageId = document.querySelector( "#imageId" );
-    modalImage.setAttribute( 'src', event.target.closest( 'div' ).querySelector( 'img' ).getAttribute( 'src' ));
-    modalImageId.setAttribute( "value", event.target.id)
+    let modalImageName = document.querySelector( "#imageName" );
+    let imagePath = event.target.closest( 'div' ).querySelector( 'img' ).getAttribute( 'src' );
+    let imageName = imagePath.split("/")[2];
+    modalImage.setAttribute( 'src', imagePath );
+    modalImageId.setAttribute( "value", event.target.id);
+    modalImageName.setAttribute( "value", imageName );
 	modal.classList.remove( "hidden" );
 }
 

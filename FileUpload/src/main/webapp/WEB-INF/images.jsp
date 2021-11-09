@@ -38,6 +38,7 @@
 					<img class="modalImage" src=""/>
 					<input type="hidden" name="_method" value="delete">
 					<input type="hidden" name="imageId" id="imageId"/>
+					<input type="hidden" name="imageName" id="imageName"/>
 					<div>
 						<button class="modalSubmit" type="submit">
 							Delete

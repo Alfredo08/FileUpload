@@ -63,8 +63,13 @@ public class ImageController {
 	}
 	
 	@RequestMapping( value = "/images/delete", method = RequestMethod.DELETE )
-	public String deleteImage( @RequestParam( "imageId" ) Long imageId ) {
+	public String deleteImage( @RequestParam( "imageId" ) Long imageId, @RequestParam( "imageName" ) String imageName ) {
 		imageService.deleteImageById(imageId);
+		
+		File currentImage = new File( new File("src/main/resources/static/images").getAbsoluteFile() + "/" + imageName );
+		System.out.println( currentImage.getAbsolutePath() );
+		currentImage.delete();
+		
 		return "redirect:/images";
 	}
 
