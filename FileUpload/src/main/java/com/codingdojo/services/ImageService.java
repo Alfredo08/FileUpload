@@ -25,4 +25,8 @@ public class ImageService {
 		return imageRepository.findAll();
 	}
 	
+	public void deleteImageById( Long imageId ) {
+		imageRepository.deleteById( imageId );
+	}
+	
 }

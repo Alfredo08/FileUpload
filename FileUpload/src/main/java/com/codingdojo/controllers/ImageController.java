@@ -37,7 +37,7 @@ public class ImageController {
 	
 	@RequestMapping( value = "/images/new", method = RequestMethod.POST )
 	public String addNewImage( @RequestParam("newImage") MultipartFile multipartFile) throws IOException {
-		String fileName = "123_" + StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         System.out.println(fileName);
 		Image newImage = new Image( "/images/" + fileName );
         
@@ -59,6 +59,12 @@ public class ImageController {
 		*/
 		
         
+		return "redirect:/images";
+	}
+	
+	@RequestMapping( value = "/images/delete", method = RequestMethod.DELETE )
+	public String deleteImage( @RequestParam( "imageId" ) Long imageId ) {
+		imageService.deleteImageById(imageId);
 		return "redirect:/images";
 	}
 

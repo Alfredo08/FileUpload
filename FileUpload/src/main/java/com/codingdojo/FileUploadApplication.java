@@ -15,9 +15,8 @@ public class FileUploadApplication {
 	}
 	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
 	    // Register resource handler for images
-	    registry.addResourceHandler("/images/**").addResourceLocations("/static/images/")
+	    registry.addResourceHandler("/resources/**").addResourceLocations("/static/images")
 	            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
 	}
 

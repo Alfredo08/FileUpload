@@ -13,7 +13,7 @@
 		</h1>
 		<form action="/images/new" method="POST" enctype="multipart/form-data"> 
 			<label for="newImage"> Select your image: </label>
-			<input type="file" id="newImage" name="newImage" accept="image/png, image/jpeg"/>
+			<input type="file" id="newImage" name="newImage" accept="image/png, image/jpeg" />
 			<button type="submit">
 				Add image
 			</button>
@@ -22,11 +22,33 @@
 			Uploaded images so far
 		</h2>
 		<div>
-			<c:forEach var="image" items="${imageList}">
+			<c:forEach var="image" items="${imageList}">	
 				<div>
 					<img src="<c:out value="${image.getImage_path()}"></c:out>" />
+					<button id="${image.getImage_id()}" class="deleteImage" >
+						Delete
+					</button>
 				</div>
 			</c:forEach>
 		</div>
+		<div class="modalContainer hidden">
+			<div class="modal">
+				<form method="POST" action="/images/delete">
+					<h2 class="modalHeading"> You are about to delete the following image: </h2>
+					<img class="modalImage" src=""/>
+					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="imageId" id="imageId"/>
+					<div>
+						<button class="modalSubmit" type="submit">
+							Delete
+						</button>
+						<button class="modalCancel" type="button">
+							Cancel
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/images.js"></script>
 	</body>
 </html>
